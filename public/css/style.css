@@ -1,0 +1,142 @@
+body {
+    font-family: 'Ink Free', sans-serif;
+    color: #333;
+    margin: 0;
+    padding: 30px;
+}
+
+h1 {
+    font-size: 6vh;
+    color: black;
+    text-shadow: 2px 2px 2px #ffffff;
+}
+h1:hover {
+    font-size: 6vh;
+    color: rgb(5, 180, 255);
+    text-shadow: 2px 2px 2px #ffffff;
+}
+
+p {
+    color: rgb(255, 255, 255);
+    font-size: 32px;
+    text-shadow: 1px 1px 1px #000;
+    line-height: 1.5;
+}
+
+.background-image {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+}
+
+.news-card,
+.test-news {
+    background-color: rgba(255, 255, 255, 0.5);
+    border-radius: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    padding: 10px;
+    margin-bottom: 20px;
+    width: 35%;
+    /* Уменьшение ширины фона новостей */
+    margin-left: 0;
+    /* Отключение автоматического выравнивания по центру */
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+}
+
+.news-card h2,
+.test-news h2 {
+    font-size: 26px;
+    /* Уменьшение размера заголовка */
+    margin-top: 0;
+    color: #000;
+}
+
+.news-card h3 {
+    font-size: 20px;
+    /* Уменьшение размера подзаголовка */
+    color: #000000;
+    margin-top: 0;
+}
+
+.news-card img,
+.test-news img {
+    max-width: 100%;
+    height: auto;
+    margin-bottom: 10px;
+}
+
+.news-card p,
+.test-news p {
+    margin-bottom: 10px;
+    font-size: 20px;
+    color: #000;
+
+    /* Уменьшение размера текста */
+}
+
+.news-card a,
+.test-news a {
+    display: inline-block;
+    background-color: #ffffff;
+    color: #000000;
+    padding: 12px 32px;
+    /* Уменьшение размера кнопки */
+    border-radius: 6px;
+    text-decoration: none;
+    font-size: 18px;
+}
+
+.news-card a:hover,
+.test-news a:hover {
+    background-color: #000000;
+    color: white;
+}
+
+.nav {
+    position: fixed;
+
+    /* Задайте нужный вам отступ от верхней части */
+    margin-bottom: 40px;
+
+}
+
+.nav a {
+    text-decoration: none;
+    margin-right: 20px;
+    /* Задайте нужный вам отступ между ссылками */
+    color: white;
+    font-size: 2vh;
+    text-shadow: 1px 1px 1px #000;
+}
+
+.nav a:hover {
+    text-decoration: none;
+    margin-right: 20px;
+
+    /* Задайте нужный вам отступ между ссылками */
+    color: rgb(0, 0, 0);
+    font-size: 2vh;
+    text-shadow: 1px 1px 1px #ffffff;
+}
+
+.dashboard a {
+    text-decoration: none;
+    margin-right: 20px;
+    /* Задайте нужный вам отступ между ссылками */
+    color: white;
+    font-size: 2vh;
+    text-shadow: 1px 1px 1px #000;
+}
+
+.dashboard a:hover {
+    text-decoration: none;
+    margin-right: 20px;
+    /* Задайте нужный вам отступ между ссылками */
+    color: rgb(0, 0, 0);
+    font-size: 2vh;
+    text-shadow: 1px 1px 1px #ffffff;
+}

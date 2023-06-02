@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Dashboard</title>
+    <link rel="stylesheet" href="../public/css/style.css">
+</head>
+<body class="dashboard">
+    <%- include('./header.ejs') %>
+    <img src="../public/img/backgroungImg/1547801.jpg" alt="" class="background-image">
+    <% if (session.user && session.user.role === 'admin') { %>
+        <h1>Hello Admin</h1>
+        <div>
+        <a href="/dashboard/user-data">Add User Data</a>
+        <a href="/dashboard/profile/<%= session.user._id %>">View Profile</a>
+        <a href="/dashboard/add-news">Add News</a>
+        <a href="/dashboard/edit-news">Edit News</a>
+    <% } else if (session.user && session.user.role === 'user') { %>
+        <h1>Hello User</h1>
+        <a href="/dashboard/user-data">Add User Data</a>
+        <a href="/dashboard/profile/<%= session.user._id %>">View Profile</a>
+        </div>
+    <% } else { %>
+        <h1>Please Login</h1>
+    <% } %>
+</body>
+</html>

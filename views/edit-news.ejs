@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Edit News</title>
+    <link rel="stylesheet" href="../public/css/edit-news.css">
+</head>
+
+<body>
+    <%- include('./header.ejs') %>
+
+    <img src="../public/img/backgroungImg/1547801.jpg" alt="" class="background-image">
+    <h1>Edit News</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>Title</th>
+                <th>Delete</th>
+                <th>Edit</th>
+            </tr>
+        </thead>
+        <tbody>
+            <% news.forEach(function(item) { %>
+                <tr>
+                    <td>
+                        <%= item.title %>
+                    </td>
+                    <td>
+                        <button class="delete-btn" data-id="<%= item._id %>">Delete</button>
+                    </td>
+                    <td>
+                        <a href="/dashboard/edit-news/<%= item._id %>">Edit</a>
+                    </td>
+                </tr>
+                <% }); %>
+        </tbody>
+    </table>
+
+    <div id="delete-modal">
+        <div>
+            <p>Are you sure you want to delete this news article</p>
+            <form id="delete-form" method="POST">
+                <input type="hidden" name="newsId" id="newsId">
+                <button type="submit" id="confirm-delete">Delete</button>
+                <button type="button" id="cancel-delete">Cancel</button>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        const deleteBtns = document.querySelectorAll('.delete-btn');
+        const deleteModal = document.getElementById('delete-modal');
+        const confirmDeleteBtn = document.getElementById('confirm-delete');
+        const cancelDeleteBtn = document.getElementById('cancel-delete');
+        const newsIdInput = document.getElementById('newsId');
+    
+        deleteBtns.forEach(deleteBtn => {
+            deleteBtn.addEventListener('click', () => {
+                deleteModal.style.display = 'flex';
+                const newsId = deleteBtn.dataset.id;
+                newsIdInput.value = newsId;
+            });
+        });
+        confirmDeleteBtn.addEventListener('click', () => {
+            const deleteForm = document.getElementById('delete-form');
+            deleteForm.setAttribute('action', `/dashboard/delete-news/${newsIdInput.value}`);
+            deleteForm.submit();
+        });
+        cancelDeleteBtn.addEventListener('click', () => {
+            deleteModal.style.display = 'none';
+        });
+    
+        // Hide the delete modal on page load
+        deleteModal.style.display = 'none';
+    </script>
+</body>
+
+</html>

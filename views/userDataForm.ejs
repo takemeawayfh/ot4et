@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add User Data</title>
+    <link rel="stylesheet" href="../public/css/userDataForm.css">
+</head>
+
+<body>
+    <%- include('./header.ejs') %>
+    <img src="../public/img/backgroungImg/1547801.jpg" alt="" class="background-image">
+
+    <div class="container">
+
+        <h1>Add User Data</h1>
+
+        <% if (typeof error !== 'undefined') { %>
+        <div class="error-message">
+            <%= error %>
+        </div>
+        <% } %>
+
+        <form action="/dashboard/user-data" method="post" enctype="multipart/form-data">
+            <div class="form-group">
+                <label for="nickname">Nickname:</label>
+                <% if (userDetails) { %>
+                <input type="text" name="nickname" id="nickname" value="<%= userDetails.nickname %>" />
+                <% } else { %>
+                <input type="text" name="nickname" id="nickname" />
+                <% } %>
+            </div>
+
+            <div class="form-group">
+                <label for="avatar">Avatar:</label>
+                <input type="file" name="avatar" id="avatar" />
+            </div>
+
+            <div class="form-group">
+                <label for="about">About:</label>
+                <textarea name="about" id="about"><%= userDetails ? userDetails.about : '' %></textarea>
+            </div>
+
+            <% if (userDetails && userDetails.avatarUrl) { %>
+            <div class="form-group">
+                <label for="avatarUrl">Current Avatar:</label>
+                <img src="<%= userDetails.avatarUrl %>" alt="Current Avatar">
+            </div>
+            <% } else { %>
+            <div class="form-group">
+                <p>No avatar uploaded</p>
+            </div>
+            <% } %>
+
+            <div class="form-group">
+                <button type="submit">Add Data</button>
+            </div>
+        </form>
+    </div>
+</body>
+
+</html>

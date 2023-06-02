@@ -1,0 +1,140 @@
+body {
+    font-family: 'Ink Free', sans-serif;
+    color: #333;
+    margin: 0;
+    padding: 30px;
+}
+
+h1 {
+    font-size: 6vh;
+    color: black;
+    text-shadow: 2px 2px 2px #ffffff;
+}
+
+h1:hover {
+    font-size: 6vh;
+    color: rgb(5, 180, 255);
+    text-shadow: 2px 2px 2px #ffffff;
+}
+
+.background-image {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+}
+
+form {
+    max-width: max-content;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: rgba(255, 255, 255, 0.5);
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+form label {
+    font-size: 20px;
+    color: #000;
+    text-shadow: 1px 1px 1px #ffffff;
+    display: block;
+    margin-bottom: 10px;
+}
+
+form input[type="text"],
+form textarea,
+form input[type="file"] {
+    display: grid;
+    justify-content: center;
+    width: 90%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+form button[type="submit"] {
+    display: block;
+    margin: 0 auto;
+    padding: 10px 20px;
+    background-color: #ffffff;
+    color: #000;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-top: 10px;
+}
+form button[type="submit"]:hover {
+    display: block;
+    margin: 0 auto;
+    padding: 10px 20px;
+    background-color: #ffffff72;
+    color: #000000;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-top: 10px;
+}
+
+.popup-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: none;
+    z-index: 9999;
+}
+
+.popup {
+    max-width: 400px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+.popup h2 {
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+
+.popup button.close {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #ffffff;
+    color: #000;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.nav {
+    position: fixed;
+
+    /* Задайте нужный вам отступ от верхней части */
+    margin-bottom: 40px;
+
+}
+
+.nav a {
+    text-decoration: none;
+    margin-right: 20px;
+    /* Задайте нужный вам отступ между ссылками */
+    color: white;
+    font-size: 2vh;
+    text-shadow: 1px 1px 1px #000;
+}
+
+.nav a:hover {
+    text-decoration: none;
+    margin-right: 20px;
+    /* Задайте нужный вам отступ между ссылками */
+    color: rgb(0, 0, 0);
+    font-size: 2vh;
+    text-shadow: 1px 1px 1px #ffffff;
+}

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Main page</title>
+    <link rel="stylesheet" href="../public/css/style.css">
+    <link href="https://fonts.cdnfonts.com/css/ink-free" rel="stylesheet">
+</head>
+
+<body>
+    <%- include('./header.ejs') %>
+        <img src="../public/img/backgroungImg/1547801.jpg" alt="" class="background-image">
+        <h1>Main page</h1>
+        <p>Welcome to the main page!</p>
+
+        <div>
+            <% let loop=0; %>
+                <% news.forEach((item)=> { %>
+                    <% if (item.category==='тест' ) { %>
+                        <div class="test-news">
+                            <h2>
+                                <%= item.title %>
+                            </h2>
+                            <img src="/uploads/<%= item.poster %>" alt="">
+                            <p>
+                                <%= item.description %>
+                            </p>
+                            <a href="/news/<%= 'post' + (++loop) %>">Подробнее</a>
+                        </div>
+                        <% } else { %>
+                            <div class="news-card">
+                                <h2>
+                                    <%= item.title %>
+                                </h2>
+                                <h3>
+                                    <%= item.category %>
+                                </h3>
+                                <img src="/uploads/<%= item.poster %>" alt="">
+                                <p>
+                                    <%= item.description %>
+                                </p>
+                                <a href="/news/<%= 'post' + (++loop) %>">Подробнее</a>
+                            </div>
+                            <% } %>
+                                <% }); %>
+        </div>
+</body>
+
+</html>

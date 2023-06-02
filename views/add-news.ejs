@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add News</title>
+    <link rel="stylesheet" href="../public/css/news.css">
+</head>
+<body>
+    <img src="../public/img/backgroungImg/1547801.jpg" alt="" class="background-image">
+
+    <% if (session.user && session.user.role === 'admin') { %>
+        <%- include('./header.ejs') %>
+
+        <h1>Add News</h1>
+        <form method="POST" action="/dashboard/add-news" enctype="multipart/form-data">
+            <label for="title">title:</label>
+            <input type="text" name="title" required>
+            <br>
+            <label for="category">Category:</label>
+            <input type="text" name="category" required>
+            <br>
+            <label for="description">Description:</label>
+            <textarea name="description" rows="5" required></textarea>
+            <br>
+            <label for="poster">Poster:</label>
+            <input type="file" name="poster" required>
+            <br>
+            <button type="submit">Add News</button>
+        </form>
+
+        <div class="popup-overlay">
+            <div class="popup">
+                <h2>Новость добавлена в базу данных!</h2>
+                <button class="close">Закрыть</button>
+            </div>
+        </div>
+        <% } else { %>
+            <h1>Please Login as Admin to Add News</h1>
+        <% } %>
+
+        <script>
+            const form = document.querySelector('#news-form');
+            const popupOverlay = document.querySelector('.popup-overlay');
+            const closeButton = document.querySelector('.close');
+
+            form.addEventListener('submit', function (e) {
+                e.preventDefault();
+
+                const formData = new FormData(form);
+
+                fetch('/dashboard/add-news', {
+                    method: 'POST',
+                    body: formData,
+                })
+                    .then(response => response.json())
+                    .then(data => {
+                        if (data.message) {
+                            popupOverlay.style.display = 'block';
+                        }
+                    })
+                    .catch(error => console.error(error));
+            });
+
+            closeButton.addEventListener('click', function () {
+                popupOverlay.style.display = 'none';
+                location.reload();
+            });
+        </script>
+</body>
+</html>

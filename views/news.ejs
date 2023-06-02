@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Новость</title>
+    <link rel="stylesheet" href="../public/css/new.css">
+</head>
+<body>
+    <%- include('./header.ejs') %>
+    <img src="../public/img/backgroungImg/1547801.jpg" alt="" class="background-image">
+
+    <h1><%= item.title %></h1>
+    <h2><%= item.category %></h2>
+    <img src="/uploads/<%= item.poster %>" alt="">
+    <p><%= item.description %></p>
+</body>
+</html>
